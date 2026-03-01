@@ -1,6 +1,5 @@
 # Write your code here
 import datetime
-
 from pydantic import BaseModel, ConfigDict
 
 
@@ -18,13 +17,15 @@ class MovieModelBase(BaseModel):
     revenue: float
     country: str
 
+
 class MoveModelCreate(MovieModelBase):
     pass
 
+
 class MovieDetailResponseSchema(MovieModelBase):
     id: int
-
     model_config = ConfigDict(from_attributes=True)
+
 
 class MovieListResponseSchema(BaseModel):
 
