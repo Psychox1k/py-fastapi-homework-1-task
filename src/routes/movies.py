@@ -41,6 +41,9 @@ async def get_movies(
         per_page=per_page,
         offset=(page - 1) * per_page
     )
+    if not movies:
+        raise HTTPException(status_code=404, detail="No movies found.")
+
     total_items = await crud.get_movies_count(db=db)
     if total_items == 0:
         raise HTTPException(status_code=404, detail="No movies found.")
