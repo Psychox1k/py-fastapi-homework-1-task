@@ -43,7 +43,7 @@ async def get_movies(
     )
     total_items = await crud.get_movies_count(db=db)
     if total_items == 0:
-        raise HTTPException(status_code=404, detail="No movies found")
+        raise HTTPException(status_code=404, detail="No movies found.")
     total_pages = math.ceil(total_items / per_page)
 
     prev_page_url = f"/theater/movies/?page={page - 1}&per_page={per_page}" if page > 1 else None
